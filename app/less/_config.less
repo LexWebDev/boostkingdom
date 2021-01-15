@@ -1,0 +1,62 @@
+// USER VARIABLES SECTION
+
+@accent: #FFD53E; // Accent Color
+@fontsize: 14px; // Body Font Size
+@textcolor: #A3A9B6; // Text Color
+@linecolor: #292D35;
+@redcolor: #FF6861;
+@system: -apple-system, BlinkMacSystemFont, Arial, sans-serif; // System Font Family
+@DINpro: DINPro, sans-serif; // DINPro Font Family
+@Arkhip: Arkhip, sans-serif; // Arkhip Font Family
+
+// IMPORT SECTION
+
+@import '/node_modules/bootstrap/dist/css/bootstrap-reboot.min.css'; // Bootstrap Reboot collection
+@import '/node_modules/bootstrap/dist/css/bootstrap-grid.min.css'; // Optional Bootstrap Grid
+@import '/node_modules/owl.carousel/dist/assets/owl.carousel.min.css'; // owl carousel
+@import '/node_modules/owl.carousel/dist/assets/owl.theme.default.min.css'; // owl carousel theme
+@import '/node_modules/jquery-modal/jquery.modal.min.css'; // jquery-modal
+
+// FONTS LOAD SECTION
+
+.font(@fname, @fstyle, @fweight, @furl) {
+	@font-face {
+		font-family: @fname;
+		font-style: @fstyle;
+		font-weight: @fweight;
+		// font-display: swap; // Uncomment to initially display system fonts
+		src: local(@fname), url(@furl) format('woff2');
+	}
+}
+
+.font('Arkhip', normal, 400, '../fonts/Arkhip-Regular.woff2');
+.font('DINPro', normal, 400, '../fonts/DINPro.woff2');
+.font('DINPro', normal, 500, '../fonts/DINPro-Medium.woff2');
+.font('DINPro', bold, 700, '../fonts/DINPro-Bold.woff2');
+
+// GENERAL DOCUMENT STYLES
+
+::placeholder {
+	color: #666;
+}
+
+::selection {
+	background-color: @accent;
+	color: #fff;
+}
+
+input, textarea {
+	outline: none;
+	&:focus:required:invalid { border-color: red; color: #fff; }
+	&:required:valid { border-color: green; color: #fff; }
+}
+body {
+	font-family: @DINpro;
+	font-size: @fontsize;
+	background-color: #1B1E24;
+	min-width: 320px;
+	position: relative;
+	line-height: 1.4;
+	overflow-x: hidden;
+	color: @textcolor;
+}
